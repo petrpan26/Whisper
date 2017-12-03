@@ -4,15 +4,12 @@ window.onload = function(){
 	var sendBtn = document.getElementById("send");
 	var content = document.getElementById("content");
 	var name = document.getElementById("name");
+	var serverName = document.getElementById("serverName");
 
 	socket.on('message', function (data){
 		if (data.message) {
 			if (data.username){
 				content.innerHTML += ('<b>'+data.username+': <b/>');
-				console.log('chix');
-			}
-			else{
-				console.log('kochix');
 			}
 			content.innerHTML += (data.message+'<br/>');
 		} else {

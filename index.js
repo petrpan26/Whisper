@@ -14,7 +14,7 @@ app.get("/", function(req, res){
 const io = socketIO.listen(app.listen(PORT));
 
 io.sockets.on('connection', function (socket){
-	socket.emit('message', {message: 'welcome to the chat'});
+	socket.emit('message', {message: 'welcome to the public room'});
 	socket.on('send', function (data){
 		io.sockets.emit('message', data);
 	});
