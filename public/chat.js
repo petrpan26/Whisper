@@ -8,7 +8,7 @@ window.onload = function(){
 	socket.on('message', function (data){
 		if (data.message) {
 			if (data.username){
-				content.innerHTML += ('<b>'+data.username+':<b/>');
+				content.innerHTML += ('<b>'+data.username+' :<b/>');
 				console.log('chix');
 			}
 			else{
