@@ -25,11 +25,12 @@ window.onload = function(){
 		} else {
 			console.log("There is a problem", data);
 		}
+		content.scrollTop = content.scrollHeight;
 	});
 	sendBtn.onclick = function(){
 		var text = field.value;
 		var usr = name.value;
-		field.value = "";
+		//field.value = "";
 		if (usr === ""){
 			window.alert("Enter a name !");
 		}
