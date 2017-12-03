@@ -8,12 +8,17 @@ window.onload = function(){
 	var changeBtn = document.getElementById("change");
 	var newServer = document.getElementById("newServer");
 	var curRoom = 'Public';
+	var clearBtn = document.getElementById("clear");
 
 	socket.emit('join', [undefined, 'Public']);
 
 	socket.on('replyJoin', function(data){
-		serverName.innerHTML = '<b>' + data + '</b>';
-		content.innerHTML = "welcome to " + data +" room<br/>";
+		serverName.innerHTML = '<b>' + data[1] + '</b>';
+		if (data[0]){
+			content.innerHTML += "Leaving " + data[0] + " room...<br/>";
+		}
+		content.innerHTML += "Welcome to " + data[1] +" room!<br/>";
+		content.scrollTop = content.scrollHeight;
 	});
 
 	socket.on('message', function (data){
@@ -30,7 +35,7 @@ window.onload = function(){
 	sendBtn.onclick = function(){
 		var text = field.value;
 		var usr = name.value;
-		//field.value = "";
+		field.value = "";
 		if (usr === ""){
 			window.alert("Enter a name !");
 		}
@@ -47,5 +52,8 @@ window.onload = function(){
 			socket.emit('join', [curRoom, room]);
 			curRoom = room;
 		}
+	}
+	clearBtn.onclick = function(){
+		content.innerHTML = "";
 	}
 }

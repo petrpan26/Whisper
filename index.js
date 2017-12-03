@@ -22,6 +22,6 @@ io.sockets.on('connection', function (socket){
 		if (room[0]){
 			socket.leave(room[0]);
 		}
-		socket.emit('replyJoin', room[1]);
+		socket.emit('replyJoin', room);
 	});
 });
