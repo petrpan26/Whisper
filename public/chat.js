@@ -1,6 +1,6 @@
 window.onload = function(){
 	var messages = [];
-	var socket = io.connect('http://localhost:3700');
+	var socket = io.connect('https://aqueous-brook-57134.herokuapp.com:3700');
 	var field = document.getElementById("field");
 	var sendBtn = document.getElementById("send");
 	var content = document.getElementById("content");
