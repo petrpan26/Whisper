@@ -1,5 +1,4 @@
 window.onload = function(){
-	var messages = [];
 	var socket = io();
 	var field = document.getElementById("field");
 	var sendBtn = document.getElementById("send");
@@ -7,12 +6,7 @@ window.onload = function(){
 
 	socket.on('message', function (data){
 		if (data.message) {
-			messages.push(data.message);
-			var html = '';
-			for (i in messages){
-				html += messages[i] + '<br/>';
-			}
-			content.innerHTML = html;
+			content.innerHTML += (data.message+'<br/>');
 		} else {
 			console.log("There is a problem", data);
 		}
