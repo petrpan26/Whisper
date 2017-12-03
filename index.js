@@ -14,8 +14,14 @@ app.get("/", function(req, res){
 const io = socketIO.listen(app.listen(PORT));
 
 io.sockets.on('connection', function (socket){
-	socket.emit('message', {message: 'welcome to the public room'});
 	socket.on('send', function (data){
-		io.sockets.emit('message', data);
+		io.sockets.to(data.room).emit('message', data);
+	});
+	socket.on('join', function(room){
+		socket.join(room[1]);
+		if (room[0]){
+			socket.leave(room[0]);
+		}
+		socket.emit('replyJoin', room[1]);
 	});
 });

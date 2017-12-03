@@ -7,14 +7,20 @@ html(lang = "en")
 	body
 		#content(style='width: 500px; height: 300px; margin: 0 0 20px 0; border: solid 1px #999; overflow-y: scroll;')
 		.controls
-			| Server:
+			| Current Server:
 			br
 			text#serverName()
 				b
 					| Public
 			br
 			| Name:
-			input#name(style='width:100px;')
 			br
-			input#field(style='width:350px;')
+			input#name(style='width:100px;', placeholder = 'Enter new name')
+			br
+			input#field(style='width:350px;', placeholder = 'Enter message')
 			input#send(type='button', value='send')
+			br
+			| Change server:
+			br
+			input#newServer(style='width:350px;', placeholder = 'Enter new server name')
+			input#change(type='button', value='change')
