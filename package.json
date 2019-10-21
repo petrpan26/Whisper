@@ -7,7 +7,7 @@
         "ejs": "^2.5.7",
         "express": "^4.16.2",
         "jade": "latest",
-        "knex": "^0.14.2",
+        "knex": "^0.19.5",
         "locus": "^2.0.1",
         "method-override": "^2.3.10",
         "morgan": "^1.9.0",
